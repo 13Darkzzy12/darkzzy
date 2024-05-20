@@ -10,23 +10,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Устанавливаем кодировку ввода на UTF-16 чтобы работало с кирилицей
+        
         Console.InputEncoding = System.Text.Encoding.GetEncoding("utf-16");
 
         System.Console.WriteLine("Введите строку из слов, разделенных пробелами:");
-        string input = Console.ReadLine(); // Получаем ввод от пользователя
-        string[] originalArray = input.Split(' '); // Разбиваем введенную строку на элементы массива по пробелам и сохраняем в массив
-        string[] newArray = CreateArrayMaxThreeChars(originalArray); // Создаем новый массив с помощью функции
+        string input = Console.ReadLine(); 
+        string[] originalArray = input.Split(' '); 
+        string[] newArray = CreateArrayMaxThreeChars(originalArray); 
 
-        PrintArray(originalArray); // Печать оригинального массива
-        PrintArray(newArray); // Печать нового массива
+        PrintArray(originalArray); 
+        PrintArray(newArray); 
 
-
-        //
-        // Функции
-        //
-
-        void PrintArray(string[] array) //Функция печати массива
+        void PrintArray(string[] array) 
         {
             for (int i = 0; i < array.Length; i++)
             {
@@ -35,22 +30,22 @@ class Program
             System.Console.WriteLine();
         }
 
-        string[] CreateArrayMaxThreeChars(string[] array) //Функция создания нового массива где элементы не длиннее 3 символов
+        string[] CreateArrayMaxThreeChars(string[] array) 
         {
-            string[] newArray = new string[originalArray.Length]; // Создаем новый массив такой же длины, как оригинальный
-            int newIndex = 0; // Инициализируем индекс для нового массива
+            string[] newArray = new string[originalArray.Length]; 
+            int newIndex = 0; 
 
-            // Формирование нового массива
-            foreach (string str in originalArray) // Перебираем каждый элемент оригинального массива
+           
+            foreach (string str in originalArray) 
             {
-                // Если длина строки <= 3 символов, добавляем в новый массив
-                if (str.Length <= 3) // Проверяем длину текущей строки
+                
+                if (str.Length <= 3) 
                 {
-                    newArray[newIndex] = str; // Добавляем строку в новый массив
-                    newIndex++; // Увеличиваем индекс нового массива для следующего элемента
+                    newArray[newIndex] = str; 
+                    newIndex++;
                 }
             }
-            return newArray; //возвращаем новый массив
+            return newArray; 
         }
     }
 
